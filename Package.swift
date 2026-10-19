@@ -11,13 +11,12 @@ let package = Package(
         .library(name: "ParaMap", targets: ["ParaMap"])
     ],
     dependencies: [
-        .package(url: "https://github.com/Swinject/Swinject", from: "2.10.0"),
-        .package(url: "https://github.com/Swinject/SwinjectAutoregistration", from: "2.9.1")
+        .package(url: "https://github.com/Swinject/Swinject", from: "2.10.0")
     ],
     targets: [
         .target(name: "JustKit"),
         .target(name: "ParaMap", dependencies: ["Swinject"]),
-        .target(name: "JustKitDI", dependencies: ["JustKit", "Swinject", "SwinjectAutoregistration"]),
+        .target(name: "JustKitDI", dependencies: ["JustKit", "Swinject"]),
         .testTarget(name: "JustKitTests", dependencies: ["JustKit"]),
         .testTarget(name: "ParaMapTests", dependencies: ["ParaMap"]),
         .testTarget(name: "JustKitDITests", dependencies: ["JustKitDI"])

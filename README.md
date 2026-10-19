@@ -10,7 +10,7 @@ Three separate products, so nothing pulls in more than it needs:
 | Product | Depends on | What's inside |
 |---|---|---|
 | `JustKit` | — | Foundation, CoreGraphics and `UserDefaults` conveniences |
-| `JustKitDI` | Swinject, SwinjectAutoregistration | what Swinject's autoregistration doesn't cover |
+| `JustKitDI` | Swinject | autoregistration on parameter packs, typed keys, `@MainActor` services |
 | `ParaMap` | Swinject | resolving a service with runtime values |
 
 ## Requirements
