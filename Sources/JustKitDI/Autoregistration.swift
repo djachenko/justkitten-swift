@@ -1,6 +1,8 @@
 import Swinject
 
 public extension Container {
+    // Замена SwinjectAutoregistration: одна функция на parameter pack
+    // вместо перегрузок под каждое число аргументов.
     @discardableResult
     func autoregister<S, each A>(_ initializer: @escaping (repeat each A) -> S) -> ServiceEntry<S> {
         register(S.self) { r in
@@ -11,6 +13,7 @@ public extension Container {
     // Ключ живёт в ServiceKey.option — том же поле, через которое SwinjectStoryboard
     // различает регистрации. Участвует в hash/== ключа наравне с типом, так что
     // ключом может быть любой Hashable, а не строковое имя.
+    // `type` фиксирует S — так `Impl.init` регистрируется под протоколом.
     @discardableResult
     func autoregister<S, each A>(
         _ type: S.Type,

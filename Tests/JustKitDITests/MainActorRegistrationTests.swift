@@ -8,8 +8,8 @@ private final class Settings {
     init() {}
 }
 
-// Не Sendable и изолирован — ровно тот случай, ради которого нужен
-// autoregisterOnMain: MainActor.assumeIsolated такое значение вернуть не может.
+// Изолирован, значит неявно Sendable: тест проверяет сам autoregisterOnMain,
+// а не обход Sendable — для него нужен неизолированный не-Sendable тип.
 @MainActor
 private final class ViewModel {
     var title = "untitled"

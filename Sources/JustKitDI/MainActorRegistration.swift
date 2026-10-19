@@ -4,10 +4,9 @@ import Swinject
 public extension Container {
     /// Registers a service whose initializer is `@MainActor`-isolated.
     ///
-    /// The whole point of the isolation erasure below: Swinject factories are nonisolated,
-    /// and `MainActor.assumeIsolated` cannot bridge the gap — it hands the value back across
-    /// the isolation boundary and so requires `Sendable`, which view models, `ModelContext`
-    /// and most other UI-facing types are not, by design.
+    /// Swinject factories are nonisolated. `MainActor.assumeIsolated` bridges that only for
+    /// `Sendable` results: `@MainActor` classes are, non-isolated values such as `ModelContext`
+    /// are not — hence the unsafe erasure below.
     ///
     /// - Precondition: resolved from the main thread.
     @discardableResult
@@ -44,6 +43,7 @@ public extension Container {
     }
 }
 
+// `MainActor.assumeIsolated` without its `T: Sendable` requirement — same bit cast as in stdlib.
 private func assumingMainActor<T>(_ body: @MainActor () -> T) -> T {
     precondition(
         Thread.isMainThread,
