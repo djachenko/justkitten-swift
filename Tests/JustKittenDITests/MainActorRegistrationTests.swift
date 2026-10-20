@@ -1,4 +1,4 @@
-@testable import JustKitDI
+@testable import JustKittenDI
 import Swinject
 import Testing
 
