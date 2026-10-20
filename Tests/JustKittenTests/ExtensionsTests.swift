@@ -1,6 +1,6 @@
 import CoreGraphics
 import Foundation
-@testable import JustKit
+@testable import JustKitten
 import Testing
 
 @Test func clampedKeepsValueInsideRange() {

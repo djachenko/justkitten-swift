@@ -1,5 +1,5 @@
 import Foundation
-@testable import JustKit
+@testable import JustKitten
 import Testing
 
 private enum Theme: String {
@@ -13,8 +13,8 @@ private enum Level: Int {
 }
 
 private func makeDefaults(_ name: String = #function) -> UserDefaults {
-    let defaults = UserDefaults(suiteName: "JustKitTests.\(name)")!
-    defaults.removePersistentDomain(forName: "JustKitTests.\(name)")
+    let defaults = UserDefaults(suiteName: "JustKittenTests.\(name)")!
+    defaults.removePersistentDomain(forName: "JustKittenTests.\(name)")
 
     return defaults
 }

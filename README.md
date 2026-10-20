@@ -1,4 +1,4 @@
-# JustKit
+# JustKitten
 
 A personal Swift utility belt — the code that used to live as copy-paste across my
 apps and got rewritten from scratch in every new one. Published because depending
@@ -9,8 +9,8 @@ Three separate products, so nothing pulls in more than it needs:
 
 | Product | Depends on | What's inside |
 |---|---|---|
-| `JustKit` | — | Foundation, CoreGraphics and `UserDefaults` conveniences |
-| `JustKitDI` | Swinject, SwinjectAutoregistration | what Swinject's autoregistration doesn't cover |
+| `JustKitten` | — | Foundation, CoreGraphics and `UserDefaults` conveniences |
+| `JustKittenDI` | Swinject, SwinjectAutoregistration | what Swinject's autoregistration doesn't cover |
 | `ParaMap` | Swinject | resolving a service with runtime values |
 
 ## Requirements
@@ -21,19 +21,19 @@ iOS 18 / macOS 14, Swift 6 toolchain.
 
 ```swift
 // Package.swift
-.package(url: "https://github.com/djachenko/justkit-swift.git", from: "0.1.0")
+.package(url: "https://github.com/djachenko/justkitten-swift.git", from: "0.2.0")
 ```
 
 Then depend on the products you actually use:
 
 ```swift
 .target(name: "MyApp", dependencies: [
-    .product(name: "JustKit", package: "justkit-swift"),
-    .product(name: "JustKitDI", package: "justkit-swift"),
+    .product(name: "JustKitten", package: "justkitten-swift"),
+    .product(name: "JustKittenDI", package: "justkitten-swift"),
 ])
 ```
 
-## JustKit
+## JustKitten
 
 Sorting and picking by a key instead of by a closure pair:
 
@@ -74,7 +74,7 @@ The optional form has no `initialValue` — that's what makes it optional. Passi
 Plus `CGPoint.distance`, `CGRect.center`, `String.removing(suffix:)`,
 `TimeInterval.minutes(_:)`.
 
-## JustKitDI
+## JustKittenDI
 
 `autoregister` without listing the argument types — parameter packs read them off
 the initializer:

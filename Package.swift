@@ -3,11 +3,11 @@
 import PackageDescription
 
 let package = Package(
-    name: "JustKit",
+    name: "JustKitten",
     platforms: [.iOS(.v18), .macOS(.v14)],
     products: [
-        .library(name: "JustKit", targets: ["JustKit"]),
-        .library(name: "JustKitDI", targets: ["JustKitDI"]),
+        .library(name: "JustKitten", targets: ["JustKitten"]),
+        .library(name: "JustKittenDI", targets: ["JustKittenDI"]),
         .library(name: "ParaMap", targets: ["ParaMap"])
     ],
     dependencies: [
@@ -15,11 +15,11 @@ let package = Package(
         .package(url: "https://github.com/Swinject/SwinjectAutoregistration", from: "2.9.1")
     ],
     targets: [
-        .target(name: "JustKit"),
+        .target(name: "JustKitten"),
         .target(name: "ParaMap", dependencies: ["Swinject"]),
-        .target(name: "JustKitDI", dependencies: ["JustKit", "Swinject", "SwinjectAutoregistration"]),
-        .testTarget(name: "JustKitTests", dependencies: ["JustKit"]),
+        .target(name: "JustKittenDI", dependencies: ["JustKitten", "Swinject", "SwinjectAutoregistration"]),
+        .testTarget(name: "JustKittenTests", dependencies: ["JustKitten"]),
         .testTarget(name: "ParaMapTests", dependencies: ["ParaMap"]),
-        .testTarget(name: "JustKitDITests", dependencies: ["JustKitDI"])
+        .testTarget(name: "JustKittenDITests", dependencies: ["JustKittenDI"])
     ]
 )

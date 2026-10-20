@@ -1,5 +1,5 @@
 import Foundation
-@testable import JustKit
+@testable import JustKitten
 import Testing
 
 private struct Config: Codable, Equatable {
